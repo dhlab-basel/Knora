@@ -6,6 +6,8 @@ import org.knora.Dependencies
 
 import scala.sys.process.Process
 
+// import timeSystems.javaUtil._
+
 //////////////////////////////////////
 // GLOBAL SETTINGS
 //////////////////////////////////////
@@ -24,8 +26,16 @@ lazy val buildSettings = Dependencies.Versions ++ Seq(
 
 lazy val root = Project(id = "knora", file("."))
         .aggregate(aggregatedProjects: _*)
-        .enablePlugins(DockerComposePlugin)
+        .enablePlugins(JavaAppPackaging, DockerPlugin, DockerComposePlugin)
         .settings(Dependencies.Versions)
+        .settings(
+            // creation of the knora-assets docker image
+            Universal / mappings ++= {
+                // copy the public folder
+                directory("knora-ontologies") ++
+                directory("webapi/_test_data")
+            }
+        )
         .settings(
             // values set for all sub-projects
             // These are normal sbt settings to configure for release, skip if already defined
