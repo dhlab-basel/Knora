@@ -17,12 +17,22 @@ docs-build: ## build the docs
 	docker run --rm -it -v $(PWD):/knora -v $(HOME)/.ivy2:/root/.ivy2 daschswiss/sbt-paradox /bin/sh -c "cd /knora && sbt docs/makeSite"
 
 #################################
-# Docker targets
+# Docker image targets
 #################################
 
 .PHONY: build-all-scala
 build-all-scala: ## build all scala projects
 	sbt webapi/universal:stage knora-graphdb-se/universal:stage knora-graphdb-free/universal:stage knora-sipi/universal:stage salsah1/universal:stage upgrade/universal:stage knora-assets/universal:stage webapi_test/universal:stage webapi_it/universal:stage
+
+.PHONY: build-all-images
+build-all-images: build-knora-api-image build-knora-graphdb-se-image build-knora-graphdb-free-image build-knora-sipi-image build-knora-salsah1-image build-knora-upgrade-image build-knora-assets-image  ## build all Docker images
+
+.PHONY: publish-all-images
+publish-all-images: publish-knora-api-image publish-knora-graphdb-se-image publish-knora-graphdb-free-image publish-knora-sipi-image publish-knora-salsah1-image publish-knora-upgrade-image publish-knora-assets-image ## publish all Docker images
+
+.PHONY: build-db-images
+build-db-images:
+	build-knora-graphdb-se-image build-knora-graphdb-free-image
 
 ## knora-api
 .PHONY: build-knora-api-image
@@ -93,12 +103,34 @@ build-knora-assets-image: build-all-scala ## build and publish knora-assets dock
 publish-knora-assets-image: build-knora-assets-image ## publish knora-assets image to Dockerhub
 	docker push $(KNORA_ASSETS_IMAGE)
 
-## all images
-.PHONY: build-all-images
-build-all-images: build-knora-api-image build-knora-graphdb-se-image build-knora-graphdb-free-image build-knora-sipi-image build-knora-salsah1-image build-knora-upgrade-image build-knora-assets-image  ## build all Docker images
 
-.PHONY: publish-all-images
-publish-all-images: publish-knora-api-image publish-knora-graphdb-se-image publish-knora-graphdb-free-image publish-knora-sipi-image publish-knora-salsah1-image publish-knora-upgrade-image publish-knora-assets-image ## publish all Docker images
+#################################
+# Docker container targets
+#################################
+
+.PHONY: docker-volume-create
+docker-volume-create:
+	@docker volume create db-home
+	@docker volume create db-import
+	@docker volume create no-license
+
+.PHONY: docker-network-create
+docker-network-create:
+	@docker network prune -f
+	@docker network create knora-net
+
+.PHONY: db-container-start
+db-container-start: build-db-images
+	docker run 	--rm \
+				-v $(KNORA_GDB_LICENSE_FILE):/graphdb/graphdb.license \
+				-v $(KNORA_GDB_IMPORT_DIR):/root/graphdb-import \
+				-v $(KNORA_GDB_HOME_DIR):/opt/graphdb/home \
+				--name=db \
+				-e GDB_HEAP_SIZE=$(KNORA_GDB_HEAP_SIZE) \
+				-e GDB_JAVA_OPTS=-Dgraphdb.license.file=/graphdb/graphdb.license -Dgraphdb.home=/opt/graphdb/home \
+				--network=docker_knora-net \
+				$(KNORA_GRAPHDB_IMAGE) /graphdb/bin/graphdb
+
 
 #################################
 ## Docker-Compose targets
@@ -139,24 +171,18 @@ endif
 
 ## knora stack
 .PHONY: stack-up
-stack-up: build-all-images env-file ## starts the knora-stack: graphdb, sipi, redis, api, salsah1.
-	docker-compose -f docker/knora.docker-compose.yml up -d
-
-.PHONY: stack-restart
-stack-restart: stack-up ## re-starts the knora-stack: graphdb, sipi, redis, api, salsah1.
-	docker-compose -f docker/knora.docker-compose.yml restart
+stack-up: build-all-images ## starts the knora-stack: graphdb, sipi, redis, api, salsah1.
+	@$(MAKE) -f $(THIS_FILE) docker-volume-create
+	@$(MAKE) -f $(THIS_FILE) docker-network-create
+	@$(MAKE) -f $(THIS_FILE) stack-down
 
 .PHONY: stack-restart-api
 stack-restart-api: ## re-starts the api. Usually used after loading data into GraphDB.
-	docker-compose -f docker/knora.docker-compose.yml restart api
-
-.PHONY: stack-logs
-stack-logs: ## prints out and follows the logs of the running knora-stack.
-	docker-compose -f docker/knora.docker-compose.yml logs -f
+	docker restart db
 
 .PHONY: stack-logs-db
 stack-logs-db: ## prints out and follows the logs of the 'db' container running in knora-stack.
-	docker-compose -f docker/knora.docker-compose.yml logs -f db
+	docker logs -f db
 
 .PHONY: stack-logs-sipi
 stack-logs-sipi: ## prints out and follows the logs of the 'sipi' container running in knora-stack.
@@ -180,7 +206,7 @@ stack-logs-salsah1: ## prints out and follows the logs of the 'salsah1' containe
 
 .PHONY: stack-down
 stack-down: ## stops the knora-stack.
-	docker-compose -f docker/knora.docker-compose.yml down
+	docker stop db
 
 ## stack without api
 .PHONY: stack-without-api
@@ -341,7 +367,20 @@ clean-docker: ## cleans the docker installation
 	docker system prune -af
 
 .PHONY: info
-info: ## print out all variables
+info: ## print output variables
+	@echo "KNORA_GRAPHDB_IMAGE: \t\t $(KNORA_GRAPHDB_IMAGE)"
+	@echo "KNORA_GDB_LICENSE_FILE: \t $(KNORA_GDB_LICENSE_FILE)"
+	@echo "KNORA_GDB_TYPE: \t\t $(KNORA_GDB_TYPE)"
+	@echo "KNORA_GDB_IMPORT_DIR: \t\t $(KNORA_GDB_IMPORT_DIR)"
+	@echo "KNORA_GDB_HOME_DIR: \t\t $(KNORA_GDB_HOME_DIR)"
+	@echo "KNORA_GDB_HEAP_SIZE: \t\t $(KNORA_GDB_HEAP_SIZE)"
+	@echo "KNORA_SIPI_IMAGE: \t\t $(KNORA_SIPI_IMAGE)"
+	@echo "KNORA_API_IMAGE: \t\t $(KNORA_API_IMAGE)"
+	@echo "KNORA_SALSAH1_IMAGE: \t\t $(KNORA_SALSAH1_IMAGE)"
+	@echo "KNORA_CURRENT_DIR: \t\t $(KNORA_CURRENT_DIR)"
+
+.PHONY: info-debug
+info-debug:
 	@echo "BUILD_TAG: \t\t\t $(BUILD_TAG)"
 	@echo "GIT_EMAIL: \t\t\t $(GIT_EMAIL)"
 	@echo "SIPI_VERSION: \t\t\t $(SIPI_VERSION)"

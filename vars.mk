@@ -68,3 +68,31 @@ ifeq ($(GDB_HEAP_SIZE),)
 else
   KNORA_GDB_HEAP_SIZE := $(GDB_HEAP_SIZE)
 endif
+
+ifeq ($(KNORA_CURRENT_DIR),)
+  KNORA_CURRENT_DIR := $(shell pwd)
+endif
+
+#################################
+## varaibles used in make targets
+## for running the containers
+#################################
+ifeq ($(KNORA_GDB_LICENSE), unknown)
+	KNORA_GRAPHDB_IMAGE=$(KNORA_GRAPHDB_FREE_IMAGE)
+	KNORA_GDB_LICENSE_FILE=no-license
+	KNORA_GDB_TYPE=graphdb-free
+else
+	KNORA_GRAPHDB_IMAGE=$(KNORA_GRAPHDB_SE_IMAGE)
+	KNORA_GDB_LICENSE_FILE=$(KNORA_GDB_LICENSE)
+	KNORA_GDB_TYPE=graphdb-se
+endif
+ifeq ($(KNORA_GDB_IMPORT), unknown)
+	KNORA_GDB_IMPORT_DIR=db-import
+else
+	KNORA_GDB_IMPORT_DIR=$(KNORA_GDB_IMPORT)
+endif
+ifeq ($(KNORA_GDB_HOME), unknown)
+	KNORA_GDB_HOME_DIR=db-home
+else
+	KNORA_GDB_HOME_DIR=$(KNORA_GDB_HOME)
+endif
