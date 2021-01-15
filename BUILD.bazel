@@ -1,3 +1,13 @@
+load("@rules_scala_annex//rules:scalafmt.bzl", "scala_format_test")
 
-
-
+#
+# to test, run:
+# $ bazel test :format
+#
+# to format in place, run:
+# $ bazel run :format
+#
+scala_format_test(
+    name = "format",
+    srcs = glob(["**/*.scala"], exclude = ["bazel-*/**/*"]),
+)
