@@ -8,6 +8,7 @@ To install the Bazel build tool, follow these steps:
 
 ```
 $ npm install -g @bazel/bazelisk
+$ npm install -g @bazel/buildozer
 ```
 
 This will install [bazelisk](https://github.com/bazelbuild/bazelisk) which is

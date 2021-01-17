@@ -14,10 +14,11 @@ alias(
     actual = "//webapi/src/main/scala/org/knora/webapi/app:app_cli",
 )
 
-# alias added for convenience. To call, use: bazel run //webapi:app_repl
-alias(
-    name = "app_repl",
-    actual = "//webapi/src/main/scala/org/knora/webapi/app:app_repl",
+# To start, run the following: $ bazel build //webapi:main_library_repl
+scala_repl(
+    name = "main_library_repl",
+    deps = [":main_library"],
+    testonly = True,
 )
 
 # Should be removed, after each scala_test rule is refactored to use direct

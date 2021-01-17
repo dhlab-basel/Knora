@@ -59,8 +59,3 @@ scala_binary(
         "@maven//:org_slf4j_log4j_over_slf4j",
     ],
 )
-
-scala_repl(
-    name = "app_repl",
-    deps = [":app"],
-)
