@@ -3,18 +3,18 @@ workspace(name = "io_dasch_dsp_api")
 # load http_archive method
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 
-# bazel-skylib 1.0.2 released 2019.10.09 (https://github.com/bazelbuild/bazel-skylib/releases/tag/1.0.2)
-skylib_version = "1.0.2"
+# bazel-skylib 1.0.3 released 2020.08.27 (https://github.com/bazelbuild/bazel-skylib/releases/tag/1.0.3)
+skylib_version = "1.0.3"
 http_archive(
     name = "bazel_skylib",
     type = "tar.gz",
     url = "https://github.com/bazelbuild/bazel-skylib/releases/download/{}/bazel-skylib-{}.tar.gz".format (skylib_version, skylib_version),
-    sha256 = "97e70364e9249702246c0e9444bccdc4b847bed1eb03c5a3ece4f83dfe6abc44",
+    sha256 = "1c531376ac7e5a180e0237938a2536de0c54d93f5c278634818e0efc952dd56c",
 )
 
 # download rules_scala repository
-rules_scala_version="8866f55712b30bbb96335cc11bc5ae5aad5cf8d4" # 18.11.2020
-rules_scala_version_sha256="cdc13aba7f0f89ae52c9c50394a10f24ac0e18923108598ac9dafce5be6a789a"
+rules_scala_version="de13a82f65af1e3c7047afd369e505bb3b2e1c64" # 12.02.2021
+rules_scala_version_sha256="35db23be908d4a6fccdfaed8a6f100b7307fd0b6aa7b64dc119ca0ecff78027b"
 http_archive(
     name = "io_bazel_rules_scala",
     strip_prefix = "rules_scala-%s" % rules_scala_version,
@@ -59,38 +59,12 @@ http_archive(
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 protobuf_deps()
 
-
-#
-# download rules_webtesting (for browser tests of salsah1)
-#
-rules_webtesting_release = "0.3.3"
-rules_webtesting_release_sha256 = "9bb461d5ef08e850025480bab185fd269242d4e533bca75bfb748001ceb343c3"
-http_archive(
-    name = "io_bazel_rules_webtesting",
-    sha256 = rules_webtesting_release_sha256,
-    urls = [
-        "https://github.com/bazelbuild/rules_webtesting/releases/download/%s/rules_webtesting.tar.gz" % rules_webtesting_release,
-    ],
-)
-
-load("@io_bazel_rules_webtesting//web:repositories.bzl", "web_test_repositories")
-
-web_test_repositories()
-
-load("@io_bazel_rules_webtesting//web/versioned:browsers-0.3.2.bzl", "browser_repositories")
-
-browser_repositories(chromium=True, firefox=True)
-
-load("@io_bazel_rules_webtesting//web:java_repositories.bzl", "java_repositories")
-
-java_repositories()
-
 #
 # download rules_jvm_external used for maven dependency resolution
 # defined in the third_party sub-folder
 #
-rules_jvm_external_version = "3.3" # 7.07.2020
-rules_jvm_external_version_sha256 = "d85951a92c0908c80bd8551002d66cb23c3434409c814179c0ff026b53544dab"
+rules_jvm_external_version = "4.0" # 6.01.2021
+rules_jvm_external_version_sha256 = "31701ad93dbfe544d597dbe62c9a1fdd76d81d8a9150c2bf1ecf928ecdf97169"
 
 http_archive(
     name = "rules_jvm_external",
@@ -111,8 +85,8 @@ pinned_maven_install()
 #
 # Load rules_scala_annex, required by rules_twirl
 #
-rules_scala_annex_version = "2503b72a166610c14170b117c51033b42a32e48b" # 29.06.2020
-rules_scala_annex_sha256 = "52d677dc8205db25a49824aade45984e3ef1b79c3bf761efede35d921033c3a4"
+rules_scala_annex_version = "aed5cc8a433824e23dc82119de1b98904ab1bb9e" # 29.01.2021
+rules_scala_annex_sha256 = "4f8c622123600b66d9f202c18953cebbeadf2e9e4a7dd11ebebffb2f600d73bc"
 http_archive(
     name = "rules_scala_annex",
     strip_prefix = "rules_scala-{}".format(rules_scala_annex_version),
@@ -147,8 +121,8 @@ bind(
 #
 # download the rules_twirl repository (needed to compile twirl templates)
 #
-rules_twirl_version = "35389750d178f17f7ddd85b9335f7b8b8d662f78" # 29.04.2020
-rules_twirl_version_sha256 = "d072049d0917b87e1eb677a4255509a7133ca71fc21c8de4b4536ca030eb3d3a"
+rules_twirl_version = "7482a70aa5c3b9eb9cb67e2b263e3c95b6503a0c" # 14.01.2021
+rules_twirl_version_sha256 = "49e4f53d8bb754be45ffa7a0ae337e70a0ebcb4cb10701cd9e9a14955502485e"
 http_archive(
   name = "io_bazel_rules_twirl",
   strip_prefix = "rules_twirl-%s" % rules_twirl_version,

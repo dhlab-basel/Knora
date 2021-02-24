@@ -94,7 +94,7 @@ class GroupsResponderADM(responderData: ResponderData) extends Responder(respond
 
     for {
       sparqlQuery <- Future(
-        org.knora.webapi.messages.twirl.queries.sparql.admin.txt
+        twirl.queries.sparql.admin.txt
           .getGroups(
             triplestore = settings.triplestoreType,
             maybeIri = None

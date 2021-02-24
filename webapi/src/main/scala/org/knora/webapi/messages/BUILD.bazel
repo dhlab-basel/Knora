@@ -2,9 +2,27 @@ package(default_visibility = ["//visibility:public"])
 
 load("@io_bazel_rules_scala//scala:scala.bzl", "scala_library")
 
+load("@io_bazel_rules_twirl//twirl:twirl.bzl", "twirl_templates")
+
+twirl_templates(
+    name = "twirl_templates",
+    additional_imports = [
+        "play.twirl.api.TwirlFeatureImports._",
+        "play.twirl.api.TwirlHelperImports._",
+        "play.twirl.api.Html",
+        "play.twirl.api.JavaScript",
+        "play.twirl.api.Txt",
+        "play.twirl.api.Xml",
+    ],
+    source_directory = "twirl",
+    srcs = glob(["twirl/**/*.scala.txt"])
+        + glob(["twirl/**/*.scala.html"])
+        + glob(["twirl/**/*.scala.xml"]),
+)
+
 scala_library(
     name = "messages",
-    srcs = glob(["**/*.scala"]) + ["//webapi/src/main/twirl:twirl_sources"],
+    srcs = glob(["**/*.scala"]) + [":twirl_templates"],
     unused_dependency_checker_mode = "warn",
     deps = [
         "//webapi/src/main/scala/org/knora/webapi",
