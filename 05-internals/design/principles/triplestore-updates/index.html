@@ -1,0 +1,3231 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../../assets/images/dasch-favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+    
+    
+      
+        <title>Triplestore Updates - Knora Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../assets/style/theme.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#triplestore-updates" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Knora Documentation" class="md-header__button md-logo" aria-label="Knora Documentation">
+      
+  <img src="../../../../assets/images/dasch-icon-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Knora Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Triplestore Updates
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../01-introduction/" class="md-tabs__link">
+        Introduction
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../02-knora-ontologies/" class="md-tabs__link">
+        Knora Ontologies
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../03-apis/" class="md-tabs__link">
+        APIs
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../04-publishing-deployment/" class="md-tabs__link">
+        Publishing and Deployment
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Knora Internals
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../06-salsah/index.md" class="md-tabs__link">
+        Salsah
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../07-sipi/" class="md-tabs__link">
+        SIPI
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../08-lucene/" class="md-tabs__link">
+        Lucene
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../faq/" class="md-tabs__link">
+      Frequently Asked Questions
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../00-release-notes/" class="md-tabs__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Knora Documentation" class="md-nav__button md-logo" aria-label="Knora Documentation">
+      
+  <img src="../../../../assets/images/dasch-icon-white.svg" alt="logo">
+
+    </a>
+    Knora Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Introduction
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Introduction" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../01-introduction/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../01-introduction/what-is-knora/" class="md-nav__link">
+        What is Knora?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../01-introduction/data-formats/" class="md-nav__link">
+        Data Formats in Knora
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../01-introduction/standoff-rdf/" class="md-nav__link">
+        Standoff/RDF Text Markup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../01-introduction/example-project/" class="md-nav__link">
+        An Example Project
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Knora Ontologies
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Knora Ontologies" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Knora Ontologies
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../02-knora-ontologies/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../02-knora-ontologies/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../02-knora-ontologies/knora-base/" class="md-nav__link">
+        The Knora Base Ontology
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../02-knora-ontologies/salsah-gui/" class="md-nav__link">
+        The SALSAH GUI Ontology
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        APIs
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="APIs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          APIs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        The Knora APIs
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="The Knora APIs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          The Knora APIs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/feature-toggles/" class="md-nav__link">
+        Feature Toggles
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        API V1
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API V1" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          API V1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/reading-and-searching-resources/" class="md-nav__link">
+        Reading and Searching Resources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/xml-to-standoff-mapping/" class="md-nav__link">
+        XML to Standoff Mapping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/adding-resources/" class="md-nav__link">
+        Adding Resources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/reading-and-searching-resources/" class="md-nav__link">
+        Reading and Searching Resources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/reading-values/" class="md-nav__link">
+        Reading Values
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/adding-values/" class="md-nav__link">
+        Adding Values
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/changing-values/" class="md-nav__link">
+        Changing Values
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v1/delete-resources-and-values/" class="md-nav__link">
+        Deleting Resources and Values
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        API V2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API V2" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          API V2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/knora-iris/" class="md-nav__link">
+        Knora IRIs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/metadata/" class="md-nav__link">
+        Metadata
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/reading-and-searching-resources/" class="md-nav__link">
+        Reading and Searching Resources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/reading-user-permissions/" class="md-nav__link">
+        Reading the User's Permissions on Resources and Values
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/getting-lists/" class="md-nav__link">
+        Getting Lists
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/xml-to-standoff-mapping/" class="md-nav__link">
+        XML to Standoff Mapping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/query-language/" class="md-nav__link">
+        Gravsearch - Virtual Graph Search
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/editing-resources/" class="md-nav__link">
+        Editing Resources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/editing-values/" class="md-nav__link">
+        Editing Values
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/ontology-information/" class="md-nav__link">
+        Querying, Creating, and Updating Ontologies
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/tei-xml/" class="md-nav__link">
+        TEI/XML
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-v2/permalinks/" class="md-nav__link">
+        Permalinks
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        Admin API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Admin API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Admin API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-admin/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-admin/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-admin/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-admin/users/" class="md-nav__link">
+        Users Endpoint
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-admin/projects/" class="md-nav__link">
+        Projects Endpoint
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-admin/groups/" class="md-nav__link">
+        Groups Endpoint
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-admin/lists/" class="md-nav__link">
+        Lists Endpoint
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-admin/lists_new-list-admin-routes_v1/" class="md-nav__link">
+        New Lists Endpoint
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-admin/permissions/" class="md-nav__link">
+        Permissions Endpoint
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-admin/stores/" class="md-nav__link">
+        Stores Endpoint
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" type="checkbox" id="__nav_4_5" >
+      
+      <label class="md-nav__link" for="__nav_4_5">
+        Util API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Util API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Util API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-util/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-util/health/" class="md-nav__link">
+        Health
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03-apis/api-util/version/" class="md-nav__link">
+        Version
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Publishing and Deployment
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Publishing and Deployment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Publishing and Deployment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../04-publishing-deployment/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../04-publishing-deployment/publishing/" class="md-nav__link">
+        Publishing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../04-publishing-deployment/getting-started/" class="md-nav__link">
+        Getting Started with Knora
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../04-publishing-deployment/configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../04-publishing-deployment/updates/" class="md-nav__link">
+        Updating Repositories when Upgrading Knora
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Knora Internals
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Knora Internals" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Knora Internals
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" checked>
+      
+      <label class="md-nav__link" for="__nav_6_1">
+        Design
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Design" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1_1" type="checkbox" id="__nav_6_1_1" checked>
+      
+      <label class="md-nav__link" for="__nav_6_1_1">
+        Knora Design Principles
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Knora Design Principles" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Knora Design Principles
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-overview/" class="md-nav__link">
+        Design Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../futures-with-akka/" class="md-nav__link">
+        Futures with Akka
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../http-module/" class="md-nav__link">
+        HTTP Module
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../store-module/" class="md-nav__link">
+        Store Module
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Triplestore Updates
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Triplestore Updates
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    General
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ontology-constraints" class="md-nav__link">
+    Ontology Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duplicate-and-redundant-values" class="md-nav__link">
+    Duplicate and Redundant Values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    Versioning
+  </a>
+  
+    <nav class="md-nav" aria-label="Versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deleting" class="md-nav__link">
+    Deleting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linking" class="md-nav__link">
+    Linking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities-of-responders" class="md-nav__link">
+    Responsibilities of Responders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-level-locking" class="md-nav__link">
+    Application-level Locking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ensuring-data-consistency" class="md-nav__link">
+    Ensuring Data Consistency
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sparql-update-examples" class="md-nav__link">
+    SPARQL Update Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="SPARQL Update Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-a-value-iri-in-a-values-version-history" class="md-nav__link">
+    Finding a value IRI in a value's version history
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-initial-version-of-a-value" class="md-nav__link">
+    Creating the initial version of a value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-version-of-a-value" class="md-nav__link">
+    Adding a new version of a value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-all-versions-of-a-value" class="md-nav__link">
+    Getting all versions of a value
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../consistency-checking/" class="md-nav__link">
+        Consistency Checking
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature-toggles/" class="md-nav__link">
+        Feature Toggles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rdf-api/" class="md-nav__link">
+        RDF Processing API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1_2" type="checkbox" id="__nav_6_1_2" >
+      
+      <label class="md-nav__link" for="__nav_6_1_2">
+        API V1 Design
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API V1 Design" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          API V1 Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v1/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v1/how-to-add-a-route/" class="md-nav__link">
+        How to Add an API v1 Route
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v1/json/" class="md-nav__link">
+        JSON in API v1
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1_3" type="checkbox" id="__nav_6_1_3" >
+      
+      <label class="md-nav__link" for="__nav_6_1_3">
+        API V2 Design
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API V2 Design" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          API V2 Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/overview/" class="md-nav__link">
+        API v2 Design Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/ontology-schemas/" class="md-nav__link">
+        Ontology Schemas
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/smart-iris/" class="md-nav__link">
+        Smart IRIs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/content-wrappers/" class="md-nav__link">
+        Content Wrappers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/how-to-add-a-route/" class="md-nav__link">
+        How to Add an API v2 Route
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/json-ld/" class="md-nav__link">
+        JSON-LD Parsing and Formatting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/ontology-management/" class="md-nav__link">
+        Ontology Management
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/sipi/" class="md-nav__link">
+        Knora and Sipi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/gravsearch/" class="md-nav__link">
+        Gravsearch Design
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/standoff/" class="md-nav__link">
+        Standoff Markup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/ark/" class="md-nav__link">
+        Archival Resource Key (ARK) Identifiers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-v2/query-design/" class="md-nav__link">
+        SPARQL Query Design
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1_4" type="checkbox" id="__nav_6_1_4" >
+      
+      <label class="md-nav__link" for="__nav_6_1_4">
+        Admin API Design
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Admin API Design" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Admin API Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-admin/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-admin/administration/" class="md-nav__link">
+        Administration
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      <label class="md-nav__link" for="__nav_6_2">
+        Development
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Development" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/building-and-running/" class="md-nav__link">
+        Build and Running
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/intellij-config/" class="md-nav__link">
+        Setup IntelliJ for development of Knora
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/bazel/" class="md-nav__link">
+        Bazel Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/docker-cheat-sheet/" class="md-nav__link">
+        Docker Cheat Sheet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/monitoring/" class="md-nav__link">
+        Monitoring Knora
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/profiling/" class="md-nav__link">
+        Profiling Knora
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/docker-compose/" class="md-nav__link">
+        Starting the Knora-Stack inside Docker Container
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/updating-repositories/" class="md-nav__link">
+        Updating Repositories
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/generating-client-test-data/" class="md-nav__link">
+        Generating Client Test Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/graphdb/" class="md-nav__link">
+        Starting GraphDB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../development/third-party/" class="md-nav__link">
+        Third-Party Dependencies
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Salsah
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Salsah" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Salsah
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../06-salsah/index.md" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        SIPI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SIPI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          SIPI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../07-sipi/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../07-sipi/setup-sipi-for-knora/" class="md-nav__link">
+        Setting Up Sipi for Knora
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../07-sipi/sipi-and-knora/" class="md-nav__link">
+        Interaction between Sipi and Knora
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Lucene
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Lucene" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Lucene
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../08-lucene/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../08-lucene/lucene-query-parser-syntax/" class="md-nav__link">
+        Lucene Query Parser Syntax
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../faq/" class="md-nav__link">
+        Frequently Asked Questions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        Release Notes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Release Notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/migration/" class="md-nav__link">
+        Migration Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/next/" class="md-nav__link">
+        Next Release
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v1.1.0/" class="md-nav__link">
+        v1.1.0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v1.2.0/" class="md-nav__link">
+        v1.2.0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v1.3.0/" class="md-nav__link">
+        v1.3.0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v1.4.0/" class="md-nav__link">
+        v1.4.0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v1.5.0/" class="md-nav__link">
+        v1.5.0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v1.6.0/" class="md-nav__link">
+        v1.6.0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v1.7.0/" class="md-nav__link">
+        v1.7.0
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v2.x.x/" class="md-nav__link">
+        v2.x.x
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v3.x.x/" class="md-nav__link">
+        v3.x.x
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v4.x.x/" class="md-nav__link">
+        v4.x.x
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v5.x.x/" class="md-nav__link">
+        v5.x.x
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../00-release-notes/v6.x.x/" class="md-nav__link">
+        v6.x.x
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    General
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions" class="md-nav__link">
+    Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ontology-constraints" class="md-nav__link">
+    Ontology Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duplicate-and-redundant-values" class="md-nav__link">
+    Duplicate and Redundant Values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versioning" class="md-nav__link">
+    Versioning
+  </a>
+  
+    <nav class="md-nav" aria-label="Versioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deleting" class="md-nav__link">
+    Deleting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linking" class="md-nav__link">
+    Linking
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    Design
+  </a>
+  
+    <nav class="md-nav" aria-label="Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responsibilities-of-responders" class="md-nav__link">
+    Responsibilities of Responders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-level-locking" class="md-nav__link">
+    Application-level Locking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ensuring-data-consistency" class="md-nav__link">
+    Ensuring Data Consistency
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sparql-update-examples" class="md-nav__link">
+    SPARQL Update Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="SPARQL Update Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-a-value-iri-in-a-values-version-history" class="md-nav__link">
+    Finding a value IRI in a value's version history
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-initial-version-of-a-value" class="md-nav__link">
+    Creating the initial version of a value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-version-of-a-value" class="md-nav__link">
+    Adding a new version of a value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-all-versions-of-a-value" class="md-nav__link">
+    Getting all versions of a value
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <!---
+Copyright © 2015-2021 the contributors (see Contributors.md).
+
+This file is part of Knora.
+
+Knora is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Knora is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public
+License along with Knora.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<h1 id="triplestore-updates">Triplestore Updates</h1>
+<h2 id="requirements">Requirements</h2>
+<h3 id="general">General</h3>
+<p>The supported update operations are:</p>
+<ul>
+<li>Create a new resource with its initial values.</li>
+<li>Add a new value.</li>
+<li>Change a value.</li>
+<li>Delete a value (i.e. mark it as deleted).</li>
+<li>Delete a resource (i.e. mark it as deleted).</li>
+</ul>
+<p>Users must be able to edit the same data concurrently.</p>
+<p>Each update must be atomic and leave the database in a consistent,
+meaningful state, respecting ontology constraints and permissions.</p>
+<p>The application must not use any sort of long-lived locks, because they
+tend to hinder concurrent edits, and it is difficult to ensure that they
+are released when they are no longer needed. Instead, if a user requests
+an update based on outdated information (because another user has just
+changed something, and the first user has not found out yet), the update
+must be not performed, and the application must notify the user who
+requested it, suggesting that the user should check the relevant data
+and try again if necessary. (We may eventually provide functionality to
+help users merge edits in such a situation. The application can also
+encourage users to coordinate with one another when they are working on
+the same data, and may eventually provide functionality to facilitate
+this coordination.)</p>
+<p>We can assume that each SPARQL update operation will run in its own
+database transaction with an isolation level of 'read committed'. This
+is what GraphDB does when it receives a SPARQL update over HTTP (see
+<a href="http://graphdb.ontotext.com/documentation/standard/storage.html#transaction-control">GraphDB SE
+Transactions</a>).
+We cannot assume that it is possible to run more than one SPARQL update
+in a single database transaction. (The <a href="http://www.w3.org/TR/sparql11-protocol/">SPARQL 1.1
+Protocol</a> does not provide a
+way to do this, and currently it can be done only by embedding the
+triplestore in the application and using a vendor-specific API, but we
+cannot require this in Knora.)</p>
+<h3 id="permissions">Permissions</h3>
+<p>To create a new value (as opposed to a new version of an existing
+value), the user must have permission to modify the containing resource.</p>
+<p>To create a new version of an existing value, the user needs only to
+have permission to modify the current version of the
+value; no permissions on the resource are needed.</p>
+<p>Since changing a link requires deleting the old link and creating a new
+one (as described in <a href="#linking">Linking</a>), a user wishing
+to change a link must have modify permission on both the containing
+resource and the <code>knora-base:LinkValue</code> for the existing link.</p>
+<p>When a new resource or value is created, it can be given default permissions
+specified the project's admin data, or (only in API v2) custom permissions
+can be specified.</p>
+<h3 id="ontology-constraints">Ontology Constraints</h3>
+<p>Knora must not allow an update that would violate an ontology
+constraint.</p>
+<p>When creating a new value (as opposed to adding a new version of an
+existing value), Knora must not allow the update if the containing
+resource's OWL class does not contain a cardinality restriction for the
+submitted property, or if the new value would violate the cardinality
+restriction.</p>
+<p>It must also not allow the update if the type of the submitted value
+does not match the <code>knora-base:objectClassConstraint</code> of the property,
+or if the property has no <code>knora-base:objectClassConstraint</code>. In the
+case of a property that points to a resource, Knora must ensure that the
+target resource belongs to the OWL class specified in the property's
+<code>knora-base:objectClassConstraint</code>, or to a subclass of that class.</p>
+<h3 id="duplicate-and-redundant-values">Duplicate and Redundant Values</h3>
+<p>When creating a new value, or changing an existing value, Knora checks
+whether the submitted value would duplicate an existing value for the
+same property in the resource. The definition of 'duplicate' depends on
+the type of value; it does not necessarily mean that the two values are
+strictly equal. For example, if two text values contain the same Unicode
+string, they are considered duplicates, even if they have different
+Standoff markup. If resource <code>R</code> has property <code>P</code> with value <code>V1</code>, and
+<code>V1</code> is a duplicate of <code>V2</code>, the API server must not add another
+instance of property <code>P</code> with value <code>V2</code>. However, if the requesting
+user does not have permission to see <code>V2</code>, the duplicate is allowed,
+because forbidding it would reveal the contents of <code>V2</code> to the user.</p>
+<p>When creating a new version of a value, Knora also checks whether the
+new version is redundant, given the existing value. It is possible for
+the definition of 'redundant' can depend on the type of value, but in
+practice, it means that the values are strictly equal: any change,
+however trivial, is allowed.</p>
+<h3 id="versioning">Versioning</h3>
+<p>Each Knora value (i.e. something belonging to an OWL class derived from
+<code>knora-base:Value</code>) is versioned. This means that once created, a value
+is never modified. Instead, 'changing' a value means creating a new
+version of the value --- actually a new value --- that points to the
+previous version using <code>knora-base:previousValue</code>. The versions of a
+value are a singly-linked list, pointing backwards into the past. When a
+new version of a value is made, the triple that points from the resource
+to the old version (using a subproperty of <code>knora-base:hasValue</code>) is
+removed, and a triple is added to point from the resource to the new
+version. Thus the resource always points only to the current version of
+the value, and the older versions are available only via the current
+version's <code>knora-base:previousValue</code> predicate.</p>
+<p>Unlike values, resources (members of OWL classes derived from
+<code>knora-base:Resource</code>) are not versioned. The data that is attached to a
+resource, other than its values, can be modified.</p>
+<h4 id="deleting">Deleting</h4>
+<p>Knora does not actually delete resources or values; it only marks them
+as deleted. Deleted data is normally hidden. All resources and values
+must have the predicate <code>knora- base:isDeleted</code>, whose object is a
+boolean. If a resource or value has been marked as deleted, it has
+<code>knora-base:isDeleted true</code> and has a <code>knora-base:deleteDate</code>. An
+optional <code>knora-base:deleteComment</code> may be added to explain why the
+resource or value has been marked as deleted.</p>
+<p>Normally, a value is marked as deleted without creating a new version of
+it. However, link values must be treated as a special case. Before a
+<code>LinkValue</code> can be marked as deleted, its reference count must be
+decremented to 0. Therefore, a new version of the <code>LinkValue</code> is made,
+with a reference count of 0, and it is this new version that is marked
+as deleted.</p>
+<p>Since it is necessary to be able to find out when a resource was
+deleted, it is not possible to undelete a resource. Moreover, to
+simplify the checking of cardinality constraints, and for consistency
+with resources, it is not possible to undelete a value, and no new
+versions of a deleted value can be made. Instead, if desired, a new
+resource or value can be created by copying data from a deleted resource
+or value.</p>
+<h3 id="linking">Linking</h3>
+<p>Links must be treated differently to other types of values. Knora needs
+to maintain information about the link, including permissions and a
+version history. Since the link does not have a unique IRI of its own,
+Knora uses RDF
+<a href="http://www.w3.org/TR/rdf-schema/#ch_reificationvocab">reifications</a> for
+this purpose. Each link between two resources has exactly one
+(non-deleted) <code>knora-base:LinkValue</code>. The resource itself has a
+predicate that points to the <code>LinkValue</code>, using a naming convention in
+which the word <code>Value</code> is appended to the name of the link predicate to
+produce the link value predicate. For example, if a resource
+representing a book has a predicate called <code>hasAuthor</code> that points to
+another resource, it must also have a predicate called <code>hasAuthorValue</code>
+that points to the <code>LinkValue</code> in which information about the link is
+stored. To find a particular <code>LinkValue</code>, one can query it either by
+using its IRI (if known), or by using its <code>rdf:subject</code>,
+<code>rdf:predicate</code>, and <code>rdf:object</code> (and excluding link values that are
+marked as deleted).</p>
+<p>Like other values, link values are versioned. The link value predicate
+always points from the resource to the current version of the link
+value, and previous versions are available only via the current
+version's <code>knora-base:previousValue</code> predicate. Deleting a link means
+deleting the triple that links the two resources, and making a new
+version of the link value, marked with <code>knora-base:isDeleted</code>. A triple
+then points from the resource to this new, deleted version (using the
+link value property).</p>
+<p>The API allows a link to be 'changed' so that it points to a different
+target resource. This is implemented as follows: the existing triple
+connecting the two resources is removed, and a new triple is added using
+the same link property and pointing to the new target resource. A new
+version of the old link's <code>LinkValue</code> is made, marked with
+<code>knora-base:isDeleted</code>. A new <code>LinkValue</code> is made for the new link. The
+new <code>LinkValue</code> has no connection to the old one.</p>
+<p>When a resource contains <code>knora-base:TextValue</code> with Standoff markup
+that includes a reference to another resource, this reference is
+materialised as a direct link between the two resources, to make it
+easier to query. A special link property,
+<code>knora-base:hasStandoffLinkTo</code>, is used for this purpose. The
+corresponding link value property, <code>knora-base:hasStandoffLinkToValue</code>,
+points to a <code>LinkValue</code>. This <code>LinkValue</code> contains a reference count,
+indicated by <code>knora-base:valueHasRefCount</code>, that represents the number
+of text values in the containing resource that include one or more
+Standoff references to the specified target resource. Each time this
+number changes, a new version of this <code>LinkValue</code> is made. When the
+reference count reaches zero, the triple with
+<code>knora-base:hasStandoffLinkTo</code> is removed, and a new version of the
+<code>LinkValue</code> is made and marked with <code>knora-base:isDeleted</code>. If the same
+resource reference later appears again in a text value, a new triple is
+added using <code>knora-base:hasStandoffLinkTo</code>, and a new <code>LinkValue</code> is
+made, with no connection to the old one.</p>
+<p>For consistency, every <code>LinkValue</code> contains a reference count. If the
+link property is not <code>knora-base:hasStandoffLinkTo</code>, the reference count
+will always be either 1 (if the link exists) or 0 (if it has been
+deleted, in which case the link value will also be marked with
+<code>knora-base:isDeleted</code>).</p>
+<p>When a <code>LinkValue</code> is created for a standoff resource reference, it is
+given the same permissions as the text value containing the reference.</p>
+<h2 id="design">Design</h2>
+<h3 id="responsibilities-of-responders">Responsibilities of Responders</h3>
+<p>The resources responder (<code>ResourcesResponderV1</code> in API v1, <code>ResourcesResponderV2</code>
+in API v2) has sole responsibility for generating SPARQL to
+create and updating resources, and the values responder (<code>ValuesResponderV1</code>
+or <code>ValuesResponderV2</code>) has sole responsibility for generating SPARQL to create
+and update values. When a new resource is created with its values, the values responder
+generates SPARQL statements that can be included in the <code>INSERT</code>
+clause of a SPARQL update to create the values, and
+the resources responder adds these statements to the SPARQL update that
+creates the resource. This ensures that the resource and its values are
+created in a single SPARQL update operation, and hence in a single
+triplestore transaction.</p>
+<h3 id="application-level-locking">Application-level Locking</h3>
+<p>The 'read committed' isolation level cannot prevent a scenario where two
+users want to add the same data at the same time. It is possible that
+both requests would do pre-update checks and simultaneously find that it
+is OK to add the data, and that both updates would then succeed,
+inserting redundant data and possibly violating ontology constraints.
+Therefore, Knora uses short-lived, application-level write locks on
+resources, to ensure that only one request at a time can update a given
+resource. Before each update, the application acquires a lock on a resource.
+To prevent deadlocks, Knora locks only one resource per API operation.
+It then does the pre-update checks and the update, then releases the
+lock. The lock implementation (in <code>IriLocker</code>) requires each API
+request message to include a random UUID, which is generated in the
+<a href="../design-overview/#api-routing">API Routing</a> package. Using
+application-level locks allows us to do pre-update checks in their own
+transactions, and finally to do the SPARQL update in its own
+transaction.</p>
+<h3 id="ensuring-data-consistency">Ensuring Data Consistency</h3>
+<p>Knora enforces consistency constraints using three redundant mechanisms:</p>
+<ol>
+<li>By doing pre-update checks using SPARQL SELECT queries and cached
+    ontology data.</li>
+<li>By doing checks in the <code>WHERE</code> clauses of SPARQL updates.</li>
+<li>By using GraphDB's built-in consistency checker (see
+    <a href="../consistency-checking/">Consistency Checking</a>).</li>
+</ol>
+<p>We take the view that redundant consistency checks are a good thing.</p>
+<p>Pre-update checks are SPARQL <code>SELECT</code> queries that are executed while
+holding an application-level lock on the resource to be updated. These
+checks should work with any triplestore, and can return helpful,
+Knora-specific error messages to the client if the request would violate
+a consistency constraint.</p>
+<p>However, the SPARQL update itself is our only chance to do pre-update
+checks in the same transaction that will perform the update. The design
+of the <a href="http://www.w3.org/TR/sparql11-update/">SPARQL 1.1 Update</a>
+standard makes it possible to ensure that if certain conditions are not
+met, the update will not be performed. In our SPARQL update code, each
+update contains a <code>WHERE</code> clause, possibly a <code>DELETE</code> clause, and an
+<code>INSERT</code> clause. The <code>WHERE</code> clause is executed first. It performs
+consistency checks and provides values for variables that are used in
+the <code>DELETE</code> and/or <code>INSERT</code> clauses. In our updates, if the
+expectations of the <code>WHERE</code> clause are not met (e.g. because the data to
+be updated does not exist), the <code>WHERE</code> clause should return no results;
+as a result, the update will not be performed.</p>
+<p>Regardless of whether the update changes the contents of the
+triplestore, it returns nothing. If the update did nothing because the
+conditions of the WHERE clause were not met, the only way to find out is
+to do a <code>SELECT</code> afterwards. Moreover, in this case, there is no
+straightforward way to find out which conditions was not met. This is
+one reason why Knora does pre-update checks using separate <code>SELECT</code>
+queries and/or cached ontology data, <em>before</em> performing the update.
+This makes it possible to return specific error messages to the user to
+indicate why an update cannot be performed.</p>
+<p>Moreover, while some checks are easy to do in a SPARQL update, others
+are difficult, impractical, or impossible. Easy checks include checking
+whether a resource or value exists or is deleted, and checking that the
+<code>knora-base:objectClassConstraint</code> of a predicate matches the <code>rdf:type</code>
+of its intended object. Cardinality checks are not very difficult, but
+they perform poorly on Jena. Knora does not do permission checks in
+SPARQL, because its permission-checking algorithm is too complex to be
+implemented in SPARQL. For this reason, Knora's check for duplicate
+values cannot be done in SPARQL update code, because it relies on
+permission checks.</p>
+<p>In a bulk import operation, which can create a large number of resources
+in a single SPARQL update, a <code>WHERE</code> clause can become very expensive
+for the triplestore, in terms of memory as well as execution time.
+Moreover, RDF4J (and hence GraphDB) uses a recursive algorithm to parse
+SPARQL queries with <code>WHERE</code> clauses, so the size of a <code>WHERE</code> clause is
+limited by the stack space available to the Java Virtual Machine.
+Therefore, in bulk import operations, Knora uses <code>INSERT DATA</code>, which
+does not involve a <code>WHERE</code> clause. Bulk imports thus rely on checks (1)
+and (3) above.</p>
+<h2 id="sparql-update-examples">SPARQL Update Examples</h2>
+<p>The following sample SPARQL update code is simpler than what Knora
+actually does. It is included here to illustrate the way Knora's SPARQL
+updates are structured and how concurrent updates are handled.</p>
+<h3 id="finding-a-value-iri-in-a-values-version-history">Finding a value IRI in a value's version history</h3>
+<p>We will need this query below. If a value is present in a resource
+property's version history, the query returns everything known about the
+value, or nothing otherwise:</p>
+<pre><code>prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix knora-base: &lt;http://www.knora.org/ontology/knora-base#&gt;
+
+SELECT ?p ?o
+WHERE {
+    BIND(IRI(&quot;http://rdfh.ch/c5058f3a&quot;) as ?resource)
+    BIND(IRI(&quot;http://www.knora.org/ontology/0803/incunabula#book_comment&quot;) as ?property)
+    BIND(IRI(&quot;http://rdfh.ch/c5058f3a/values/testComment002&quot;) as ?searchValue)
+
+    ?resource ?property ?currentValue .
+    ?currentValue knora-base:previousValue* ?searchValue .
+    ?searchValue ?p ?o .
+}
+</code></pre>
+<h3 id="creating-the-initial-version-of-a-value">Creating the initial version of a value</h3>
+<pre><code>prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix knora-base: &lt;http://www.knora.org/ontology/knora-base#&gt;
+
+WITH &lt;http://www.knora.org/ontology/0803/incunabula&gt;
+INSERT {
+    ?newValue rdf:type ?valueType ;
+              knora-base:valueHasString &quot;&quot;&quot;Comment 1&quot;&quot;&quot; ;
+              knora-base:attachedToUser &lt;http://rdfh.ch/users/91e19f1e01&gt; ;
+              knora-base:attachedToProject &lt;http://rdfh.ch/projects/77275339&gt; ;
+              knora-base:hasPermissions &quot;V knora-admin:KnownUser,knora-admin:UnknownUser|M knora-admin:ProjectMember&quot;  ;
+              knora-base:valueTimestamp ?currentTime .
+
+    ?resource ?property ?newValue .
+} WHERE {
+    BIND(IRI(&quot;http://rdfh.ch/c5058f3a&quot;) as ?resource)
+    BIND(IRI(&quot;http://www.knora.org/ontology/0803/incunabula#book_comment&quot;) as ?property)
+    BIND(IRI(&quot;http://rdfh.ch/c5058f3a/values/testComment001&quot;) AS ?newValue)
+    BIND(IRI(&quot;http://www.knora.org/ontology/knora-base#TextValue&quot;) AS ?valueType)
+    BIND(NOW() AS ?currentTime)
+
+    # Do nothing if the resource doesn't exist.
+    ?resource rdf:type ?resourceClass .
+
+    # Do nothing if the submitted value has the wrong type.
+    ?property knora-base:objectClassConstraint ?valueType .
+}
+</code></pre>
+<p>To find out whether the insert succeeded, the application can use the
+query in <a href="#finding-a-value-iri-in-a-values-version-history">Finding a value IRI in a value's version history</a>
+to look for the new IRI in the property's version history.</p>
+<h3 id="adding-a-new-version-of-a-value">Adding a new version of a value</h3>
+<pre><code>prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix knora-base: &lt;http://www.knora.org/ontology/knora-base#&gt;
+
+WITH &lt;http://www.knora.org/ontology/0803/incunabula&gt;
+DELETE {
+    ?resource ?property ?currentValue .
+} INSERT {
+    ?newValue rdf:type ?valueType ;
+              knora-base:valueHasString &quot;&quot;&quot;Comment 2&quot;&quot;&quot; ;
+              knora-base:previousValue ?currentValue ;
+              knora-base:attachedToUser &lt;http://rdfh.ch/users/91e19f1e01&gt; ;
+              knora-base:attachedToProject &lt;http://rdfh.ch/projects/77275339&gt; ;
+              knora-base:hasPermissions &quot;V knora-admin:KnownUser,knora-admin:UnknownUser|M knora-admin:ProjectMember&quot;  ;
+              knora-base:valueTimestamp ?currentTime .
+
+    ?resource ?property ?newValue .
+} WHERE {
+    BIND(IRI(&quot;http://rdfh.ch/c5058f3a&quot;) as ?resource)
+    BIND(IRI(&quot;http://rdfh.ch/c5058f3a/values/testComment001&quot;) AS ?currentValue)
+    BIND(IRI(&quot;http://rdfh.ch/c5058f3a/values/testComment002&quot;) AS ?newValue)
+    BIND(IRI(&quot;http://www.knora.org/ontology/knora-base#TextValue&quot;) AS ?valueType)
+    BIND(NOW() AS ?currentTime)
+
+    ?resource ?property ?currentValue .
+    ?property knora-base:objectClassConstraint ?valueType .
+}
+</code></pre>
+<p>The update request must contain the IRI of the most recent version of
+the value (<code>http://rdfh.ch/c5058f3a/values/c3295339</code>). If this is
+not in fact the most recent version (because someone else has done an
+update), this operation will do nothing (because the <code>WHERE</code> clause will
+return no rows). To find out whether the update succeeded, the
+application will then need to do a SELECT query using the query in
+<a href="#finding-a-value-iri-in-a-values-version-history">Finding a value IRI in a value's version history</a>.
+In the case of concurrent updates, there are two possibilities:</p>
+<ol>
+<li>Users A and B are looking at version 1. User A submits an update and
+    it succeeds, creating version 2, which user A verifies using a
+    SELECT. User B then submits an update to version 1 but it fails,
+    because version 1 is no longer the latest version. User B's SELECT
+    will find that user B's new value IRI is absent from the value's
+    version history.</li>
+<li>Users A and B are looking at version 1. User A submits an update and
+    it succeeds, creating version 2. Before User A has time to do a
+    SELECT, user B reads the new value and updates it again. Both users
+    then do a SELECT, and find that both their new value IRIs are
+    present in the value's version history.</li>
+</ol>
+<h3 id="getting-all-versions-of-a-value">Getting all versions of a value</h3>
+<pre><code>prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix knora-base: &lt;http://www.knora.org/ontology/knora-base#&gt;
+
+SELECT ?value ?valueTimestamp ?previousValue
+WHERE {
+    BIND(IRI(&quot;http://rdfh.ch/c5058f3a&quot;) as ?resource)
+    BIND(IRI(&quot;http://www.knora.org/ontology/0803/incunabula#book_comment&quot;) as ?property)
+    BIND(IRI(&quot;http://rdfh.ch/c5058f3a/values/testComment002&quot;) AS ?currentValue)
+
+    ?resource ?property ?currentValue .
+    ?currentValue knora-base:previousValue* ?value .
+
+    OPTIONAL {
+        ?value knora-base:valueTimestamp ?valueTimestamp .
+    }
+
+    OPTIONAL {
+        ?value knora-base:previousValue ?previousValue .
+    }
+}
+</code></pre>
+<p>This assumes that we know the current version of the value. If the
+version we have is not actually the current version, this query will
+return no rows.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../store-module/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Store Module
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../consistency-checking/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Consistency Checking
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      
+    
+  </body>
+</html>
